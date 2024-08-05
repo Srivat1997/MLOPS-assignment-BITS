@@ -25,12 +25,14 @@ def gradient_descent(X, y, weights, learning_rate, iterations):
     for i in range(iterations):
         y_pred = predict(X, weights)
         gradients = np.dot(X.T, (y_pred - y)) / m
-        weights -= learning_rate * gradients    
+        weights -= learning_rate * gradients
         if i % 1000 == 0:
             loss = compute_loss(y, y_pred)
             print(f"Iteration {i}: Loss = {loss}")
     return weights
 # Example usage with synthetic data
+
+
 if __name__ == "__main__":
     # Create a synthetic dataset
     np.random.seed(42)
@@ -51,4 +53,4 @@ if __name__ == "__main__":
     # Accuracy
     accuracy = np.mean(y_pred_classes == y)
     print(f"Accuracy: {accuracy * 100:.2f}%")
-    
+
