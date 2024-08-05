@@ -53,4 +53,3 @@ if __name__ == "__main__":
     # Accuracy
     accuracy = np.mean(y_pred_classes == y)
     print(f"Accuracy: {accuracy * 100:.2f}%")
-
