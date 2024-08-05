@@ -1,23 +1,31 @@
 import numpy as np
 # Sigmoid function
+
+
 def sigmoid(z):
     return 1 / (1 + np.exp(-z))
 # Prediction function
+
+
 def predict(X, weights):
     z = np.dot(X, weights)
     return sigmoid(z)
 # Loss function
+
+
 def compute_loss(y, y_pred):
     m = len(y)
     loss = - (1/m) * np.sum(y * np.log(y_pred) + (1 - y) * np.log(1 - y_pred))
     return loss
 # Gradient Descent
+
+
 def gradient_descent(X, y, weights, learning_rate, iterations):
     m = len(y)
     for i in range(iterations):
         y_pred = predict(X, weights)
         gradients = np.dot(X.T, (y_pred - y)) / m
-        weights -= learning_rate * gradients     
+        weights -= learning_rate * gradients    
         if i % 1000 == 0:
             loss = compute_loss(y, y_pred)
             print(f"Iteration {i}: Loss = {loss}")
@@ -43,3 +51,4 @@ if __name__ == "__main__":
     # Accuracy
     accuracy = np.mean(y_pred_classes == y)
     print(f"Accuracy: {accuracy * 100:.2f}%")
+    
